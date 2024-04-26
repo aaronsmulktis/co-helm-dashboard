@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from routes.routes import router as case_router
 
 app = FastAPI()
 
@@ -11,6 +12,4 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+app.include_router(case_router, prefix="/api")

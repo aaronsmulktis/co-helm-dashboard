@@ -9,6 +9,7 @@ import { useDashboard } from "@/context/dashboard-context";
 export const revalidate = 0;
 
 export default function DashboardRoot() {
+	const API_URL = process.env.NEXT_PUBLIC_API_URL;
 	const { medicalRecord, guidelinesFile } = useDashboard();
 	const router = useRouter();
 	const CASE_ID = "case_891a_6fbl_87d1_4326";
@@ -25,6 +26,9 @@ export default function DashboardRoot() {
 	}, [isDisabled]);
 
 	const handleContinue = () => {
+		fetch(`${API_URL}/cases`, {
+			method: "POST"
+		});
 		router.push(`/dashboard/case/${CASE_ID}`)
 	}
 
