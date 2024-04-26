@@ -6,7 +6,7 @@ interface IRootLayoutProps {
 
 export default function RootLayout(props: IRootLayoutProps) {
 	const { children } = props;
-	
+
 	return (
 		<html lang="en">
 			<head></head>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 * {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 .AccordionContent {
@@ -14,6 +14,15 @@
   }
   .AccordionContent[data-state='closed'] {
     animation: slideUp 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn .33s ease-out forwards;
   }
   
   @keyframes slideDown {
