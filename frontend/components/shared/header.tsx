@@ -1,4 +1,8 @@
+import { useRouter } from "next/navigation";
+import { FaArrowUp } from "react-icons/fa";
+
 export default function Header() {
+  const router = useRouter();
   return (
     <div className="w-full flex flex-row justify-between items-center mb-10">
       <div className="flex flex-row">
@@ -12,9 +16,7 @@ export default function Header() {
         </div>
       </div>
       <div className="flex flex-row gap-2">
-        <button className="bg-green-600 font-medium text-white py-2 px-4 rounded">Dashboard</button>
-        <button className="bg-green-600 font-medium text-white py-2 px-4 rounded">Cases</button>
-        <button className="bg-green-600 font-medium text-white py-2 px-4 rounded">Settings</button>
+        <button className="bg-kelp-400 font-medium text-white py-2 px-4 rounded flex flex-row items-center" onClick={() => router.push("/dashboard")}><FaArrowUp />&nbsp;Upload</button>
       </div>
     </div>
   )

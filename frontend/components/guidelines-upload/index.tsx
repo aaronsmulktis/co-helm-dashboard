@@ -13,7 +13,7 @@ export default function GuidelinesUpload() {
 
   const handleClick = () => {
     if (medicalRecord === null) {
-      toast.error("Medical Record Required");
+      toast.warn("Medical Record Required");
       return;
     }
     setLoading(true);
