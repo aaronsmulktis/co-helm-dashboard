@@ -1,7 +1,6 @@
 from fastapi import APIRouter, HTTPException
-from fastapi.responses import StreamingResponse
-from typing import List, Dict, Generator
-from datetime import datetime, timedelta
+from typing import List, Dict
+from datetime import datetime
 from uuid import uuid4
 import threading
 import time
@@ -44,10 +43,9 @@ thread.start()
 @router.post("/cases/", response_model=Case)
 async def create_case():
   with open('../assets/response-1.json', 'r') as file:
-      data = json.load(file)
+    data = json.load(file)
   new_id = data.get('case_id')
   data['created_at'] = datetime.now().isoformat()
-  # data['status'] = "submitted"
   cases[new_id] = data
   return data
 
@@ -60,4 +58,6 @@ async def get_case(case_id: str):
 
 @router.get("/cases/", response_model=List[Case])
 async def get_all_cases():
+  if not cases:
+    raise HTTPException(status_code=404, detail="No cases available")
   return list(cases.values())

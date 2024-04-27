@@ -7,7 +7,7 @@ Requirements [here](https://co-helm.notion.site/Senior-Product-Engineer-Take-Hom
 - `cd /backend`
 - `conda create -n cohelm && conda activate cohelm` _(recommended)_
 - _(You may need to select the interpreter in VS Code > Cmd + Shift + P > Python: Choose Interpreter)_
-- `pip install -r requirements.txt`
+- `conda env create -f environment.yml`
 - `uvicorn main:app --reload`
 
 ## Running frontend
