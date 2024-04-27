@@ -4,7 +4,7 @@ import { useDashboard } from "@/context/dashboard-context";
 import classNames from "classnames";
 import { FaCheck } from "react-icons/fa";
 
-import { StatusText } from "../shared/loading/loading";
+import { StatusText } from "@/components/shared/loading";
 
 export default function MedicalRecordUpload() {
   const { medicalRecord, setMedicalRecord } = useDashboard();

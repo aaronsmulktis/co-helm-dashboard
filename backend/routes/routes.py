@@ -11,7 +11,7 @@ from models.case import Case
 
 router = APIRouter()
 
-cases: Dict[int, Case] = {}
+cases: Dict[str, Case] = {}
 
 def update_cases():
   while True:
@@ -43,18 +43,16 @@ thread.start()
 
 @router.post("/cases/", response_model=Case)
 async def create_case():
-  # new_id = str(uuid4())
-  new_id = len(cases) + 1
   with open('../assets/response-1.json', 'r') as file:
       data = json.load(file)
-  data['id'] = new_id
+  new_id = data.get('case_id')
   data['created_at'] = datetime.now().isoformat()
-  data['status'] = "submitted"
+  # data['status'] = "submitted"
   cases[new_id] = data
   return data
 
 @router.get("/cases/{case_id}", response_model=Case)
-async def get_case(case_id: int):
+async def get_case(case_id: str):
   case = cases.get(case_id)
   if not case:
       raise HTTPException(status_code=404, detail="Case not found")

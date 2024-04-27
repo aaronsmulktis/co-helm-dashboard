@@ -4,14 +4,20 @@ interface IRootLayoutProps {
 	children: React.ReactNode;
 }
 
+import Providers from "@/app/providers";
+
 export default function RootLayout(props: IRootLayoutProps) {
 	const { children } = props;
 
 	return (
 		<html lang="en">
-			<head></head>
+			<head>
+				<title>Co:Helm Dashboard</title>
+			</head>
 			<body>
-				{children}
+				<Providers>
+					{children}
+				</Providers>
 				<div id="modal" />
 			</body>
 		</html>

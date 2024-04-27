@@ -1,7 +1,7 @@
 export enum Status {
     Submitted = "submitted",
     Processing = "processing",
-    Completed = "completed"
+    Complete = "complete"
 }
 
 export interface Option {
@@ -30,7 +30,7 @@ export interface Step {
 }
 
 export interface Case {
-    id: number;
+    case_id: string;
     created_at: Date;
     status: Status;
     procedure_name: string;

@@ -17,7 +17,7 @@ export const StatusText = ({ defaultText, successText, status }: StatusTextProps
       {status === true && (
         <span key="loading" className="flex flex-row transition-opacity duration-500 ease-out opacity-0 animate-fade-in">
           <FaSpinner className="animate-spin-slow h-5 w-5" />
-          &nbsp;&nbsp;Uploading
+          &nbsp;&nbsp;Loading
         </span>
       )}
       {status === false && (

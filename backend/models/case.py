@@ -31,7 +31,7 @@ class Step(BaseModel):
     evidence: List[Evidence]
 
 class Case(BaseModel):
-    id: Optional[int] = None
+    case_id: str
     created_at: Optional[datetime] = Field(default_factory=datetime.now)
     status: StatusEnum = StatusEnum.submitted
     procedure_name: str
